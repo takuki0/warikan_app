@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>精算結果</title>
+</head>
+<body>
+    <h1>精算結果</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>支払者</th>
+                <th>受取人</th>
+                <th>金額</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pair in settlement_pairs %}
+                <tr>
+                    <td>{{ pair.payer }}</td>
+                    <td>{{ pair.receiver }}</td>
+                    <td>{{ pair.amount }}円</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

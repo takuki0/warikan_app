@@ -1,12 +1,11 @@
-<h1>割り勘アプリ</h1>
-<form method="POST">
-    <label for="num_people">人数:</label>
-    <input type="number" name="num_people" required><br><br>
-    <label for="individual_payments">個別支払額(カンマ区切り):</label>
-    <input type="text" name="individual_payments" required><br><br>
-    <label for="rounding_method">端数処理:</label>
-    <input type="radio" name="rounding_method" value="ceil" checked> 切り上げ
-    <input type="radio" name="rounding_method" value="floor"> 切り捨て
-    <input type="radio" name="rounding_method" value="round"> 四捨五入<br><br>
-    <button type="submit">計算</button>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>割り勘アプリ</title>
+</head>
+<body>
+    <h1>割り勘アプリ</h1>
+    <p>ようこそ！</p>
+    <a href="{{ url_for('create_group') }}">グループを作成</a>
+</body>
+</html>

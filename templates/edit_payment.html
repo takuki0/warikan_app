@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>支払い記録編集</title>
+</head>
+<body>
+    <h1>支払い記録編集</h1>
+    <form method="POST" action="{{ url_for('edit_payment', group_id=group_id, payment_id=payment.id) }}">
+        <div>
+            <label for="payer_id">支払者:</label>
+            <select name="payer_id" required>
+                {% for member in members %}
+                    <option value="{{ member.id }}" {% if payment.payer_id == member.id %}selected{% endif %}>{{ member.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="amount">金額:</label>
+            <input type="number" name="amount" value="{{ payment.amount }}" required>
+        </div>
+        <div>
+            <label for="date">日付:</label>
+            <input type="date" name="date" value="{{ payment.date.strftime('%Y-%m-%d') }}" required>
+        </div>
+        <div>
+            <label for="memo">メモ:</label>
+            <textarea name="memo">{{ payment.memo }}</textarea>
+        </div>
+        <div>
+            <label for="participants">参加者:</label>
+            {% for member in members %}
+                <input type="checkbox" name="participants" value="{{ member.id }}" 
+                {% if member in payment.participants %}checked{% endif %}> {{ member.name }}
+            {% endfor %}
+        </div>
+        <button type="submit">更新</button>
+    </form>
+</body>
+</html>
