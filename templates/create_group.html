@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>グループ作成</title>
+</head>
+<body>
+    <h1>グループ作成</h1>
+    <form method="POST" action="{{ url_for('create_group') }}">
+        <div>
+            <label for="name">グループ名:</label>
+            <input type="text" name="name" required>
+        </div>
+        <button type="submit">作成</button>
+    </form>
+</body>
+</html>
