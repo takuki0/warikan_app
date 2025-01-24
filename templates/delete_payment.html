@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <title>支払い記録削除確認</title>
+    <meta charset="UTF-8">
+    <title>支払い削除</title>
 </head>
 <body>
-    <h1>支払い記録削除確認</h1>
-    <p>以下の支払い記録を削除しますか？</p>
-    <p>{{ payment.date }} - {{ payment.payer.name }}: {{ payment.amount }}円</p>
-    <form method="POST" action="{{ url_for('delete_payment', group_id=group_id, payment_id=payment.id) }}">
+    <h1>支払い削除</h1>
+    <p>本当に削除しますか？</p>
+    <form method="POST">
         <button type="submit">削除</button>
     </form>
-    <a href="{{ url_for('group_detail', group_id=group_id) }}">キャンセル</a>
 </body>
 </html>

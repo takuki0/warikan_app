@@ -1,32 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <title>グループ詳細 - {{ group.name }}</title>
+    <meta charset="UTF-8">
+    <title>グループ詳細</title>
 </head>
 <body>
     <h1>{{ group.name }}</h1>
-
-    <h2>メンバー</h2>
-    <ul>
-        {% for member in group.members %}
-            <li>{{ member.name }}</li>
-        {% endfor %}
-    </ul>
-
     <a href="{{ url_for('add_member', group_id=group.id) }}">メンバーを追加</a>
-
-    <h2>支払い記録</h2>
-    <ul>
-        {% for payment in group.payments %}
-            <li>{{ payment.date }} - {{ payment.payer.name }}: {{ payment.amount }}円
-                <a href="{{ url_for('edit_payment', group_id=group.id, payment_id=payment.id) }}">編集</a>
-                <a href="{{ url_for('delete_payment', group_id=group.id, payment_id=payment.id) }}">削除</a>
-            </li>
-        {% endfor %}
-    </ul>
-
-    <a href="{{ url_for('add_payment', group_id=group.id) }}">支払い記録を追加</a>
-
-    <a href="{{ url_for('settlement', group_id=group.id) }}">精算</a>
+    <a href="{{ url_for('add_payment', group_id=group.id) }}">支払いを追加</a>
+    <a href="{{ url_for('settlement', group_id=group.id) }}">精算する</a>
 </body>
 </html>

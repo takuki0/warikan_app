@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
+    <meta charset="UTF-8">
     <title>メンバー追加</title>
 </head>
 <body>
     <h1>メンバー追加</h1>
-    <form method="POST" action="{{ url_for('add_member', group_id=group_id) }}">
+    <form method="POST">
+        {{ form.hidden_tag() }}
         <div>
-            <label for="name">メンバー名:</label>
-            <input type="text" name="name" required>
+            {{ form.name.label }} {{ form.name() }}
         </div>
         <button type="submit">追加</button>
     </form>
